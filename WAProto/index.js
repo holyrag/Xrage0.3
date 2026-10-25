@@ -118354,7 +118354,6 @@ export const proto = $root.proto = (() => {
              * @property {proto.Message.InteractiveMessage.IHeader|null} [header] InteractiveMessage header
              * @property {proto.Message.InteractiveMessage.IBody|null} [body] InteractiveMessage body
              * @property {proto.Message.InteractiveMessage.IFooter|null} [footer] InteractiveMessage footer
-             * @property {proto.Message.InteractiveMessage.IBloksWidget|null} [bloksWidget] InteractiveMessage bloksWidget
              * @property {proto.IContextInfo|null} [contextInfo] InteractiveMessage contextInfo
              * @property {proto.IUrlTrackingMap|null} [urlTrackingMap] InteractiveMessage urlTrackingMap
              * @property {proto.Message.InteractiveMessage.IShopMessage|null} [shopStorefrontMessage] InteractiveMessage shopStorefrontMessage
@@ -118401,14 +118400,6 @@ export const proto = $root.proto = (() => {
              * @instance
              */
             InteractiveMessage.prototype.footer = null;
-
-            /**
-             * InteractiveMessage bloksWidget.
-             * @member {proto.Message.InteractiveMessage.IBloksWidget|null|undefined} bloksWidget
-             * @memberof proto.Message.InteractiveMessage
-             * @instance
-             */
-            InteractiveMessage.prototype.bloksWidget = null;
 
             /**
              * InteractiveMessage contextInfo.
@@ -118480,12 +118471,6 @@ export const proto = $root.proto = (() => {
             });
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(InteractiveMessage.prototype, "_bloksWidget", {
-                get: $util.oneOfGetter($oneOfFields = ["bloksWidget"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InteractiveMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -118546,8 +118531,6 @@ export const proto = $root.proto = (() => {
                     $root.proto.Message.InteractiveMessage.NativeFlowMessage.encode(message.nativeFlowMessage, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
                 if (message.carouselMessage != null && Object.hasOwnProperty.call(message, "carouselMessage"))
                     $root.proto.Message.InteractiveMessage.CarouselMessage.encode(message.carouselMessage, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
-                if (message.bloksWidget != null && Object.hasOwnProperty.call(message, "bloksWidget"))
-                    $root.proto.Message.InteractiveMessage.BloksWidget.encode(message.bloksWidget, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
                 if (message.contextInfo != null && Object.hasOwnProperty.call(message, "contextInfo"))
                     $root.proto.ContextInfo.encode(message.contextInfo, writer.uint32(/* id 15, wireType 2 =*/122).fork()).ldelim();
                 if (message.urlTrackingMap != null && Object.hasOwnProperty.call(message, "urlTrackingMap"))
@@ -118601,7 +118584,6 @@ export const proto = $root.proto = (() => {
                             break;
                         }
                     case 8: {
-                            message.bloksWidget = $root.proto.Message.InteractiveMessage.BloksWidget.decode(reader, reader.uint32());
                             break;
                         }
                     case 15: {
@@ -118688,14 +118670,6 @@ export const proto = $root.proto = (() => {
                             return "footer." + error;
                     }
                 }
-                if (message.bloksWidget != null && message.hasOwnProperty("bloksWidget")) {
-                    properties._bloksWidget = 1;
-                    {
-                        var error = $root.proto.Message.InteractiveMessage.BloksWidget.verify(message.bloksWidget);
-                        if (error)
-                            return "bloksWidget." + error;
-                    }
-                }
                 if (message.contextInfo != null && message.hasOwnProperty("contextInfo")) {
                     properties._contextInfo = 1;
                     {
@@ -118780,11 +118754,6 @@ export const proto = $root.proto = (() => {
                         throw TypeError(".proto.Message.InteractiveMessage.footer: object expected");
                     message.footer = $root.proto.Message.InteractiveMessage.Footer.fromObject(object.footer);
                 }
-                if (object.bloksWidget != null) {
-                    if (typeof object.bloksWidget !== "object")
-                        throw TypeError(".proto.Message.InteractiveMessage.bloksWidget: object expected");
-                    message.bloksWidget = $root.proto.Message.InteractiveMessage.BloksWidget.fromObject(object.bloksWidget);
-                }
                 if (object.contextInfo != null) {
                     if (typeof object.contextInfo !== "object")
                         throw TypeError(".proto.Message.InteractiveMessage.contextInfo: object expected");
@@ -118866,11 +118835,6 @@ export const proto = $root.proto = (() => {
                     if (options.oneofs)
                         object.interactiveMessage = "carouselMessage";
                 }
-                if (message.bloksWidget != null && message.hasOwnProperty("bloksWidget")) {
-                    object.bloksWidget = $root.proto.Message.InteractiveMessage.BloksWidget.toObject(message.bloksWidget, options);
-                    if (options.oneofs)
-                        object._bloksWidget = "bloksWidget";
-                }
                 if (message.contextInfo != null && message.hasOwnProperty("contextInfo")) {
                     object.contextInfo = $root.proto.ContextInfo.toObject(message.contextInfo, options);
                     if (options.oneofs)
@@ -118910,322 +118874,7 @@ export const proto = $root.proto = (() => {
                 return typeUrlPrefix + "/proto.Message.InteractiveMessage";
             };
 
-            InteractiveMessage.BloksWidget = (function() {
 
-                /**
-                 * Properties of a BloksWidget.
-                 * @memberof proto.Message.InteractiveMessage
-                 * @interface IBloksWidget
-                 * @property {string|null} [uuid] BloksWidget uuid
-                 * @property {string|null} [data] BloksWidget data
-                 * @property {string|null} [type] BloksWidget type
-                 * @property {string|null} [fallback] BloksWidget fallback
-                 */
-
-                /**
-                 * Constructs a new BloksWidget.
-                 * @memberof proto.Message.InteractiveMessage
-                 * @classdesc Represents a BloksWidget.
-                 * @implements IBloksWidget
-                 * @constructor
-                 * @param {proto.Message.InteractiveMessage.IBloksWidget=} [properties] Properties to set
-                 */
-                function BloksWidget(properties) {
-                    if (properties)
-                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                            if (properties[keys[i]] != null)
-                                this[keys[i]] = properties[keys[i]];
-                }
-
-                /**
-                 * BloksWidget uuid.
-                 * @member {string|null|undefined} uuid
-                 * @memberof proto.Message.InteractiveMessage.BloksWidget
-                 * @instance
-                 */
-                BloksWidget.prototype.uuid = null;
-
-                /**
-                 * BloksWidget data.
-                 * @member {string|null|undefined} data
-                 * @memberof proto.Message.InteractiveMessage.BloksWidget
-                 * @instance
-                 */
-                BloksWidget.prototype.data = null;
-
-                /**
-                 * BloksWidget type.
-                 * @member {string|null|undefined} type
-                 * @memberof proto.Message.InteractiveMessage.BloksWidget
-                 * @instance
-                 */
-                BloksWidget.prototype.type = null;
-
-                /**
-                 * BloksWidget fallback.
-                 * @member {string|null|undefined} fallback
-                 * @memberof proto.Message.InteractiveMessage.BloksWidget
-                 * @instance
-                 */
-                BloksWidget.prototype.fallback = null;
-
-                // OneOf field names bound to virtual getters and setters
-                var $oneOfFields;
-
-                // Virtual OneOf for proto3 optional field
-                Object.defineProperty(BloksWidget.prototype, "_uuid", {
-                    get: $util.oneOfGetter($oneOfFields = ["uuid"]),
-                    set: $util.oneOfSetter($oneOfFields)
-                });
-
-                // Virtual OneOf for proto3 optional field
-                Object.defineProperty(BloksWidget.prototype, "_data", {
-                    get: $util.oneOfGetter($oneOfFields = ["data"]),
-                    set: $util.oneOfSetter($oneOfFields)
-                });
-
-                // Virtual OneOf for proto3 optional field
-                Object.defineProperty(BloksWidget.prototype, "_type", {
-                    get: $util.oneOfGetter($oneOfFields = ["type"]),
-                    set: $util.oneOfSetter($oneOfFields)
-                });
-
-                // Virtual OneOf for proto3 optional field
-                Object.defineProperty(BloksWidget.prototype, "_fallback", {
-                    get: $util.oneOfGetter($oneOfFields = ["fallback"]),
-                    set: $util.oneOfSetter($oneOfFields)
-                });
-
-                /**
-                 * Creates a new BloksWidget instance using the specified properties.
-                 * @function create
-                 * @memberof proto.Message.InteractiveMessage.BloksWidget
-                 * @static
-                 * @param {proto.Message.InteractiveMessage.IBloksWidget=} [properties] Properties to set
-                 * @returns {proto.Message.InteractiveMessage.BloksWidget} BloksWidget instance
-                 */
-                BloksWidget.create = function create(properties) {
-                    return new BloksWidget(properties);
-                };
-
-                /**
-                 * Encodes the specified BloksWidget message. Does not implicitly {@link proto.Message.InteractiveMessage.BloksWidget.verify|verify} messages.
-                 * @function encode
-                 * @memberof proto.Message.InteractiveMessage.BloksWidget
-                 * @static
-                 * @param {proto.Message.InteractiveMessage.IBloksWidget} message BloksWidget message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                BloksWidget.encode = function encode(message, writer) {
-                    if (!writer)
-                        writer = $Writer.create();
-                    if (message.uuid != null && Object.hasOwnProperty.call(message, "uuid"))
-                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.uuid);
-                    if (message.data != null && Object.hasOwnProperty.call(message, "data"))
-                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.data);
-                    if (message.type != null && Object.hasOwnProperty.call(message, "type"))
-                        writer.uint32(/* id 3, wireType 2 =*/26).string(message.type);
-                    if (message.fallback != null && Object.hasOwnProperty.call(message, "fallback"))
-                        writer.uint32(/* id 4, wireType 2 =*/34).string(message.fallback);
-                    return writer;
-                };
-
-                /**
-                 * Encodes the specified BloksWidget message, length delimited. Does not implicitly {@link proto.Message.InteractiveMessage.BloksWidget.verify|verify} messages.
-                 * @function encodeDelimited
-                 * @memberof proto.Message.InteractiveMessage.BloksWidget
-                 * @static
-                 * @param {proto.Message.InteractiveMessage.IBloksWidget} message BloksWidget message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                BloksWidget.encodeDelimited = function encodeDelimited(message, writer) {
-                    return this.encode(message, writer).ldelim();
-                };
-
-                /**
-                 * Decodes a BloksWidget message from the specified reader or buffer.
-                 * @function decode
-                 * @memberof proto.Message.InteractiveMessage.BloksWidget
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @param {number} [length] Message length if known beforehand
-                 * @returns {proto.Message.InteractiveMessage.BloksWidget} BloksWidget
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                BloksWidget.decode = function decode(reader, length, error) {
-                    if (!(reader instanceof $Reader))
-                        reader = $Reader.create(reader);
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.Message.InteractiveMessage.BloksWidget();
-                    while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        if (tag === error)
-                            break;
-                        switch (tag >>> 3) {
-                        case 1: {
-                                message.uuid = reader.string();
-                                break;
-                            }
-                        case 2: {
-                                message.data = reader.string();
-                                break;
-                            }
-                        case 3: {
-                                message.type = reader.string();
-                                break;
-                            }
-                        case 4: {
-                                message.fallback = reader.string();
-                                break;
-                            }
-                        default:
-                            reader.skipType(tag & 7);
-                            break;
-                        }
-                    }
-                    return message;
-                };
-
-                /**
-                 * Decodes a BloksWidget message from the specified reader or buffer, length delimited.
-                 * @function decodeDelimited
-                 * @memberof proto.Message.InteractiveMessage.BloksWidget
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {proto.Message.InteractiveMessage.BloksWidget} BloksWidget
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                BloksWidget.decodeDelimited = function decodeDelimited(reader) {
-                    if (!(reader instanceof $Reader))
-                        reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
-                };
-
-                /**
-                 * Verifies a BloksWidget message.
-                 * @function verify
-                 * @memberof proto.Message.InteractiveMessage.BloksWidget
-                 * @static
-                 * @param {Object.<string,*>} message Plain object to verify
-                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                 */
-                BloksWidget.verify = function verify(message) {
-                    if (typeof message !== "object" || message === null)
-                        return "object expected";
-                    var properties = {};
-                    if (message.uuid != null && message.hasOwnProperty("uuid")) {
-                        properties._uuid = 1;
-                        if (!$util.isString(message.uuid))
-                            return "uuid: string expected";
-                    }
-                    if (message.data != null && message.hasOwnProperty("data")) {
-                        properties._data = 1;
-                        if (!$util.isString(message.data))
-                            return "data: string expected";
-                    }
-                    if (message.type != null && message.hasOwnProperty("type")) {
-                        properties._type = 1;
-                        if (!$util.isString(message.type))
-                            return "type: string expected";
-                    }
-                    if (message.fallback != null && message.hasOwnProperty("fallback")) {
-                        properties._fallback = 1;
-                        if (!$util.isString(message.fallback))
-                            return "fallback: string expected";
-                    }
-                    return null;
-                };
-
-                /**
-                 * Creates a BloksWidget message from a plain object. Also converts values to their respective internal types.
-                 * @function fromObject
-                 * @memberof proto.Message.InteractiveMessage.BloksWidget
-                 * @static
-                 * @param {Object.<string,*>} object Plain object
-                 * @returns {proto.Message.InteractiveMessage.BloksWidget} BloksWidget
-                 */
-                BloksWidget.fromObject = function fromObject(object) {
-                    if (object instanceof $root.proto.Message.InteractiveMessage.BloksWidget)
-                        return object;
-                    var message = new $root.proto.Message.InteractiveMessage.BloksWidget();
-                    if (object.uuid != null)
-                        message.uuid = String(object.uuid);
-                    if (object.data != null)
-                        message.data = String(object.data);
-                    if (object.type != null)
-                        message.type = String(object.type);
-                    if (object.fallback != null)
-                        message.fallback = String(object.fallback);
-                    return message;
-                };
-
-                /**
-                 * Creates a plain object from a BloksWidget message. Also converts values to other types if specified.
-                 * @function toObject
-                 * @memberof proto.Message.InteractiveMessage.BloksWidget
-                 * @static
-                 * @param {proto.Message.InteractiveMessage.BloksWidget} message BloksWidget
-                 * @param {$protobuf.IConversionOptions} [options] Conversion options
-                 * @returns {Object.<string,*>} Plain object
-                 */
-                BloksWidget.toObject = function toObject(message, options) {
-                    if (!options)
-                        options = {};
-                    var object = {};
-                    if (message.uuid != null && message.hasOwnProperty("uuid")) {
-                        object.uuid = message.uuid;
-                        if (options.oneofs)
-                            object._uuid = "uuid";
-                    }
-                    if (message.data != null && message.hasOwnProperty("data")) {
-                        object.data = message.data;
-                        if (options.oneofs)
-                            object._data = "data";
-                    }
-                    if (message.type != null && message.hasOwnProperty("type")) {
-                        object.type = message.type;
-                        if (options.oneofs)
-                            object._type = "type";
-                    }
-                    if (message.fallback != null && message.hasOwnProperty("fallback")) {
-                        object.fallback = message.fallback;
-                        if (options.oneofs)
-                            object._fallback = "fallback";
-                    }
-                    return object;
-                };
-
-                /**
-                 * Converts this BloksWidget to JSON.
-                 * @function toJSON
-                 * @memberof proto.Message.InteractiveMessage.BloksWidget
-                 * @instance
-                 * @returns {Object.<string,*>} JSON object
-                 */
-                BloksWidget.prototype.toJSON = function toJSON() {
-                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                };
-
-                /**
-                 * Gets the default type url for BloksWidget
-                 * @function getTypeUrl
-                 * @memberof proto.Message.InteractiveMessage.BloksWidget
-                 * @static
-                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                 * @returns {string} The default type url
-                 */
-                BloksWidget.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                    if (typeUrlPrefix === undefined) {
-                        typeUrlPrefix = "type.googleapis.com";
-                    }
-                    return typeUrlPrefix + "/proto.Message.InteractiveMessage.BloksWidget";
-                };
-
-                return BloksWidget;
-            })();
 
             InteractiveMessage.Body = (function() {
 
@@ -120369,7 +120018,6 @@ export const proto = $root.proto = (() => {
                  * @property {string|null} [title] Header title
                  * @property {string|null} [subtitle] Header subtitle
                  * @property {boolean|null} [hasMediaAttachment] Header hasMediaAttachment
-                 * @property {proto.Message.InteractiveMessage.IBloksWidget|null} [bloksWidget] Header bloksWidget
                  * @property {proto.Message.IDocumentMessage|null} [documentMessage] Header documentMessage
                  * @property {proto.Message.IImageMessage|null} [imageMessage] Header imageMessage
                  * @property {Uint8Array|null} [jpegThumbnail] Header jpegThumbnail
@@ -120416,14 +120064,6 @@ export const proto = $root.proto = (() => {
                  * @instance
                  */
                 Header.prototype.hasMediaAttachment = null;
-
-                /**
-                 * Header bloksWidget.
-                 * @member {proto.Message.InteractiveMessage.IBloksWidget|null|undefined} bloksWidget
-                 * @memberof proto.Message.InteractiveMessage.Header
-                 * @instance
-                 */
-                Header.prototype.bloksWidget = null;
 
                 /**
                  * Header documentMessage.
@@ -120494,12 +120134,6 @@ export const proto = $root.proto = (() => {
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                // Virtual OneOf for proto3 optional field
-                Object.defineProperty(Header.prototype, "_bloksWidget", {
-                    get: $util.oneOfGetter($oneOfFields = ["bloksWidget"]),
-                    set: $util.oneOfSetter($oneOfFields)
-                });
-
                 /**
                  * Header media.
                  * @member {"documentMessage"|"imageMessage"|"jpegThumbnail"|"videoMessage"|"locationMessage"|"productMessage"|undefined} media
@@ -120553,8 +120187,6 @@ export const proto = $root.proto = (() => {
                         $root.proto.Message.LocationMessage.encode(message.locationMessage, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
                     if (message.productMessage != null && Object.hasOwnProperty.call(message, "productMessage"))
                         $root.proto.Message.ProductMessage.encode(message.productMessage, writer.uint32(/* id 9, wireType 2 =*/74).fork()).ldelim();
-                    if (message.bloksWidget != null && Object.hasOwnProperty.call(message, "bloksWidget"))
-                        $root.proto.Message.InteractiveMessage.BloksWidget.encode(message.bloksWidget, writer.uint32(/* id 10, wireType 2 =*/82).fork()).ldelim();
                     return writer;
                 };
 
@@ -120604,8 +120236,7 @@ export const proto = $root.proto = (() => {
                                 break;
                             }
                         case 10: {
-                                message.bloksWidget = $root.proto.Message.InteractiveMessage.BloksWidget.decode(reader, reader.uint32());
-                                break;
+                                    break;
                             }
                         case 3: {
                                 message.documentMessage = $root.proto.Message.DocumentMessage.decode(reader, reader.uint32());
@@ -120681,14 +120312,6 @@ export const proto = $root.proto = (() => {
                         properties._hasMediaAttachment = 1;
                         if (typeof message.hasMediaAttachment !== "boolean")
                             return "hasMediaAttachment: boolean expected";
-                    }
-                    if (message.bloksWidget != null && message.hasOwnProperty("bloksWidget")) {
-                        properties._bloksWidget = 1;
-                        {
-                            var error = $root.proto.Message.InteractiveMessage.BloksWidget.verify(message.bloksWidget);
-                            if (error)
-                                return "bloksWidget." + error;
-                        }
                     }
                     if (message.documentMessage != null && message.hasOwnProperty("documentMessage")) {
                         properties.media = 1;
@@ -120766,11 +120389,6 @@ export const proto = $root.proto = (() => {
                         message.subtitle = String(object.subtitle);
                     if (object.hasMediaAttachment != null)
                         message.hasMediaAttachment = Boolean(object.hasMediaAttachment);
-                    if (object.bloksWidget != null) {
-                        if (typeof object.bloksWidget !== "object")
-                            throw TypeError(".proto.Message.InteractiveMessage.Header.bloksWidget: object expected");
-                        message.bloksWidget = $root.proto.Message.InteractiveMessage.BloksWidget.fromObject(object.bloksWidget);
-                    }
                     if (object.documentMessage != null) {
                         if (typeof object.documentMessage !== "object")
                             throw TypeError(".proto.Message.InteractiveMessage.Header.documentMessage: object expected");
@@ -120861,11 +120479,6 @@ export const proto = $root.proto = (() => {
                         object.productMessage = $root.proto.Message.ProductMessage.toObject(message.productMessage, options);
                         if (options.oneofs)
                             object.media = "productMessage";
-                    }
-                    if (message.bloksWidget != null && message.hasOwnProperty("bloksWidget")) {
-                        object.bloksWidget = $root.proto.Message.InteractiveMessage.BloksWidget.toObject(message.bloksWidget, options);
-                        if (options.oneofs)
-                            object._bloksWidget = "bloksWidget";
                     }
                     return object;
                 };
