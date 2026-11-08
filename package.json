@@ -1,8 +1,8 @@
 {
-  "name": "@poucode/baileys",
+  "name": "@holyrag/baileys",
   "type": "module",
-  "version": "1.0.0",
-  "description": "A WebSockets library for interacting with WhatsApp Web \u2014 PouCode fork of Baileys",
+  "version": "3.0.0",
+  "description": "A WebSockets library for interacting with WhatsApp Web \u2014 ragemods fork of Baileys",
   "keywords": [
     "poucode",
     "baileys",
