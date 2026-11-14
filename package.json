@@ -2,9 +2,9 @@
   "name": "@holyrag/baileys",
   "type": "module",
   "version": "3.0.0",
-  "description": "A WebSockets library for interacting with WhatsApp Web \u2014 ragemods fork of Baileys",
+  "description": "A WebSockets library for interacting with WhatsApp Web modified by ragemods,
   "keywords": [
-    "poucode",
+    "ragemods",
     "baileys",
     "whatsapp",
     "whatsapp-api",
@@ -144,5 +144,8 @@
   },
   "contributors": [
     "WhiskeySockets (original Baileys authors)"
-  ]
+  ],
+  "optionalDependencies": {
+    "better-sqlite3": "^11.8.1"
+  }
 }
